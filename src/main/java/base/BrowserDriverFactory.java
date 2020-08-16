@@ -5,17 +5,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+/**
+ * In this class, the driver's properties are set
+ */
 public class BrowserDriverFactory {
-    //La variable estara disponible desde cualquier capa
+    //driver variable will be available in any class
     private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
     private String browser;
     private Logger log;
+
     //Constructor
     public BrowserDriverFactory(String browser, Logger log){
         this.browser = browser.toLowerCase();
         this.log = log;
     }
 
+    //This method sets the driver
     public WebDriver createDriver() {
         //Create browser
         log.info("Create driver: " + browser);
