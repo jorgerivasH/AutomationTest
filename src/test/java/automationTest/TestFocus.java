@@ -2,20 +2,16 @@ package automationTest;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.BasePageObject;
+import pages.HomePage;
 
 
 public class TestFocus extends BaseTest {
     @Test
-    public void focusTest(){
-        log.info("Opening www.google.com page");
-        BasePageObject base=new BasePageObject(driver,log);
-        base.openUrl("http://www.google.com");
+    public void focusTest() throws InterruptedException {
 
-        log.info("Type in Google’s search “Focus Services”");
-
-
-
+        HomePage home = new HomePage(driver,log);
+        home.goToHomePage();
+        Thread.sleep(10000);
     }
 
 }
