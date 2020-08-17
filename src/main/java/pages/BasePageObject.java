@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * This class contain some useful method to navigate on any web page
+ * This class contain some useful methods to navigate on any web page
  * */
 public class BasePageObject {
     protected WebDriver driver;
@@ -54,6 +54,7 @@ public class BasePageObject {
                         (timeOutInSeconds.length > 0 ? timeOutInSeconds[0]: null));
                 break;
             }catch (StaleElementReferenceException e){
+                e.getMessage();
             }
             attempts++;
         }

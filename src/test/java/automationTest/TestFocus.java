@@ -1,17 +1,21 @@
 package automationTest;
 
-import base.BaseTest;
+import base.TestUtilities;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
 
-public class TestFocus extends BaseTest {
-    @Test
-    public void focusTest() throws InterruptedException {
+public class TestFocus extends TestUtilities {
 
+
+    @Test
+    public void focusTest(){
         HomePage home = new HomePage(driver,log);
         home.goToHomePage();
-        Thread.sleep(10000);
+        home.validateTextInf("www.focusservices.com");
+        home.clickLinkPage();
+        scrollDown();
+        sleep(5000);
     }
 
 }
