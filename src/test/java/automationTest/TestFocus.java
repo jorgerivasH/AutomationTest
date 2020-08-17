@@ -19,6 +19,10 @@ public class TestFocus extends TestUtilities {
         home.validateNowHiringBtn();
         locations.goToLocationsPage();
         scroll();
+        locations.clickNorthAmerLnk();
+        locations.clickCentralAmerLnk();
+        locations.clickAsiaLnk();
+        locations.validateBacolodTitle();
         sleep(5000);
     }
 
