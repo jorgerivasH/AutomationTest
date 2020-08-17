@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class TestUtilities extends BaseTest{
 
-    //static sleep
+    //This method sleeps the browser
     protected void sleep(long millis){
         try{
             Thread.sleep(millis);
@@ -13,17 +13,17 @@ public class TestUtilities extends BaseTest{
         }
     }
 
-    //This method scroll down on the page to footer
+    //This method scroll down to the footer page
     protected void scrollDown(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        log.info("scroll down was performed");
+        log.info("Scroll down was performed to the footer page");
     }
 
     //This method scroll on the page
     protected void scroll(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,750)", "");
+        log.info("Scroll down was performed");
     }
-
 }

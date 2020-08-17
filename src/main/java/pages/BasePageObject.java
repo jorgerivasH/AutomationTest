@@ -22,30 +22,30 @@ public class BasePageObject {
         this.log=log;
     }
 
-    //This method open page with given URL
+    //This method opens a page with a given URL
     public void openUrl(String url){
         driver.get(url);
-        log.info("the url: "+url+" was opening");
+        log.info("the url: "+url+" was opened");
     }
 
-    //Find element using given locator
+    //This method finds element using given locator
     protected WebElement find(By locator){
         return driver.findElement(locator);
     }
 
-    //Click on element with given locator when is visible
+    //This method clicks on the element with given locator when is visible
     public void click(By locator){
         waitForVisibilityOf(locator, 5);
         find(locator).click();
     }
 
-    //Type given test into element with given locator
+    //This method Types a keyword into element
     public void type(String text , By locator){
         waitForVisibilityOf(locator, 5);
         find(locator).sendKeys(text);
     }
 
-    //Wait for a given number of seconds for element with given locator to be visible on the page
+    //Wait for a given number of seconds for the element with given locator to be visible on the page
     protected void waitForVisibilityOf(By locator, Integer... timeOutInSeconds){
         int attempts = 0;
         while(attempts < 2){
@@ -60,7 +60,7 @@ public class BasePageObject {
         }
     }
 
-    //Wait for specific Expected condition for the given amount of time in seconds
+    //Wait for specific expected condition for the given amount of time in seconds
     private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds){
         timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
         WebDriverWait wait =new WebDriverWait(driver, timeOutInSeconds);

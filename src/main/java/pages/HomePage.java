@@ -21,33 +21,37 @@ public class HomePage extends BasePageObject{
         super(driver, log);
     }
 
+    //This method search for Focus Services page
     public void goToHomePage(){
-        log.info("Opening www.google.com page");
+        log.info("Opening Chrome Browser");
         openUrl("http://www.google.com");
-        log.info("Type in Google’s search “Focus Services”");
+        log.info("Typing in Google’s search “Focus Services”");
         type("Focus Services",searchGoogleLocator);
         click(googleLabelLocator);
-        log.info("Searching “Focus Services”");
+        log.info("Searching 'Focus Services' link");
         click(SearchBtnLocator);
-        log.info("Clicking on “Search button”");
+        log.info("Clicking on 'Search button'");
     }
 
+    //This method validates if 'www.focusservices.com' URL exists on the page
     public void validateTextInf(String text){
         String sourcePage=driver.getPageSource();
         Assert.assertTrue(sourcePage.contains("www.focusservices.com"),
                 "www.focusservices.com URL was not found");
-        log.info("'"+text+"'"+" was found in the source page");
+        log.info("The '"+ text +"' " + "URL was found");
     }
 
+    //This method clicks on Focus Services link
     public void clickLinkPage(){
         click(focusSerLnkLocator);
-        log.info("Clicking Focus Services page");
+        log.info("Clicking on 'Focus Services' link");
     }
 
+    //This method validates if 'Now Hiring' button exists
     public void validateNowHiringBtn(){
         String text=find(nowHiringBtnLocator).getText();
         Assert.assertTrue(text.contains("Now Hiring"),
-                "Now Hiring button is not appear");
-        log.info("'"+text+"'"+" was found in the source page");
+                "Now Hiring button was not found");
+        log.info("The '" + text + "' " + "button was found");
     }
 }

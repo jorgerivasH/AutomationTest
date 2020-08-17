@@ -5,9 +5,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LocationsPage;
 
-
-public class TestFocus extends TestUtilities {
-
+public class TestFocus extends TestUtilities{
     @Test
     public void focusTest(){
         HomePage home = new HomePage(driver,log);
@@ -21,9 +19,8 @@ public class TestFocus extends TestUtilities {
         scroll();
         locations.clickNorthAmerLnk();
         locations.clickCentralAmerLnk();
+        locations.validateEsTitle();
         locations.clickAsiaLnk();
         locations.validateBacolodTitle();
-        sleep(5000);
     }
-
 }
